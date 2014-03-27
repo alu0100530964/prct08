@@ -29,13 +29,13 @@ else:
   nombre_fichero = raw_input()
 if (n > 0):
   try:
-    fichero = open (nombre_fichero, "a")
+    fichero = open (nombre_fichero, "a")      # Intenta abrir el fichero  de  nombre_fichero y si no esta creado lo crea con la linea de except
   except:
     fichero = open (nombre_fichero, "w")
-  fichero.write ("Nº de intervalos:%d\n"%(aproximaciones))
+  fichero.write ("Nº de intervalos: %d\n"%(aproximaciones))    # Escribe en el fichero el numero de intervalos
   for i in range (5):
     porcentaje=modulo.error (n,aproximaciones, umbral[i])
-    fichero.write ("%2.2f%% de fallos para el umbral %2.5f\n"%(porcentaje,umbral[i]))
-  fichero.close()
+    fichero.write ("%2.2f%% de fallos para el umbral %2.5f\n"%(porcentaje,umbral[i]))  # Escribe en el fichero el fallo del umbral
+  fichero.close()    # cierra fichero
 else:
   print "EL valor de los intervalos debe ser mayor que 0"
